@@ -1,3 +1,6 @@
+import { auth } from "@/auth";
+import { redirect } from "next/navigation";
+
 import {
   Card,
   CardContent,
@@ -9,7 +12,12 @@ import Link from "next/link";
 
 import RegisterForm from "./register-form";
 
-export default function RegisterPage() {
+const RegisterPage = async () => {
+  const session = await auth();
+  if (session) {
+    return redirect("/dashboard");
+  }
+
   return (
     <>
       <Card className="max-w-sm w-full rounded-2xl mt-12">
@@ -30,4 +38,6 @@ export default function RegisterPage() {
       </p>
     </>
   );
-}
+};
+
+export default RegisterPage;
