@@ -6,6 +6,8 @@ import Link from 'next/link';
 import bookImg from './book.png';
 
 export default async function MonthlyBook() {
+
+
   return (
     <>
       <h1 className="text-3xl font-bold mb-6">Livro do Mês</h1>
